@@ -20,8 +20,8 @@ const orderRoomBookedModel = Mongoose.Schema({
         type: Date,
     },
     bookingStatus: {
-        type: Number,
-        default: 0
+        type: Array,
+        default: ['1', '2', '3']
     },
     totalRoomRate: {
         type: Number,
