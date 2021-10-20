@@ -1,20 +1,20 @@
 import express from 'express'
-import roomDetailController from './roomDetailController'
+import userController from './userController'
 
 const app = express()
-const roomDetail = new roomDetailController
+const user = new userController
 
 
 app.use(express())
 
 
 app.get('/', async(req, res) => {
-    res.json("roomDetail")
+    res.json("user")
 })
 app.post('/create', async(req, res) => {
     try {
         const data = req.body
-        const doc = await roomDetail.create(data)
+        const doc = await user.create(data)
         res.json(doc)
     } catch (err) {
         res.json(err)
@@ -23,7 +23,7 @@ app.post('/create', async(req, res) => {
 
 app.post('/delete/:id', async(req, res) => {
     const id = req.params.id
-    await roomDetail.delete({ id })
+    await user.delete({ id })
     res.json(`Delete ${id}`)
 })
 
@@ -31,7 +31,7 @@ app.post('/delete/:id', async(req, res) => {
 app.post('/update/:id', async(req, res) => {
     const id = req.params.id
     const data = req.body
-    const doc1 = await roomDetail.updateOne({ _id: id }, data)
+    const doc1 = await user.updateOne({ _id: id }, data)
     if (doc1) {
         res.json("Successfully!!!")
     } else {
@@ -42,7 +42,7 @@ app.post('/update/:id', async(req, res) => {
 
 app.get('/:id', async(req, res) => {
     const id = req.params.id
-    const docs = await roomDetail.findOne({ _id: id })
+    const docs = await user.findOne({ _id: id })
     res.json(docs)
 })
 
