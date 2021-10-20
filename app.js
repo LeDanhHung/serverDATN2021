@@ -2,6 +2,10 @@ import express from 'express'
 import dotenv from 'dotenv';
 
 import orderRoomBookedApi from './src/orderRoomBooked/orderRoomBookedApi.js';
+import roomDetailModel from "./src/roomDetail/roomDetailModel";
+import roomDetailController from "./src/roomDetail/roomDetailController";
+import roomDetailAPI from "./src/roomDetail/roomDetailAPI";
+import roomDetailData from "./src/roomDetail/roomDetailData";
 
 // configs
 import connectDatabase from "./src/configs/dbConfigs.js";
@@ -22,6 +26,7 @@ app.get("/home", async(req, res) => {
 
 //Route
 app.use('/orderRoomBooked', orderRoomBookedApi)
+app.use('/roomDetailAPI',roomDetailAPI)
     //Server
 app.listen(process.env.port, async() => {
     console.log(`Server chạy bằng con port ${process.env.port}`);
