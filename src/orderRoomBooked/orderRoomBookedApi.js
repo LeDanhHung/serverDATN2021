@@ -3,10 +3,10 @@ import express from 'express'
 
 
 import OrderRoomBookedController from './orderRoomBookedControler.js'
-
+import OrderRoomBookingDetailController from '../oderRoomBookingDetail/oderRoomBookingDetailController.js'
 const app = express()
 const orderRoomBooked = new OrderRoomBookedController
-
+const orderRoomBooking = new OrderRoomBookingDetailController
 
 app.use(express())
 
@@ -18,6 +18,7 @@ app.post('/create', async(req, res) => {
     try {
         const data = req.body
         const doc = await orderRoomBooked.create(data)
+        await orderRoomBooking.create({ idBookingDetails: doc.id })
         res.json(doc)
     } catch (err) {
         res.json(err)
@@ -45,7 +46,9 @@ app.post('/update/:id', async(req, res) => {
 
 app.post('/delete/:id', async(req, res) => {
     const id = req.params.id
-    await orderRoomBooked.delete({ id })
-    res.json(`Delete ${id}`)
+    await orderRoomBooked.delete({ _id: id })
+    await orderRoomBooking.delete({ _id: id })
+    res.json(`Delete thanh cong  ${id}`)
+
 })
 export default app
