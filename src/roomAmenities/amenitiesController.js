@@ -1,4 +1,4 @@
-import amenitiesDetailsData from "./amenitiesDetailsData";
+import amenitiesDetailsData from "./amenitiesDetailsData.js";
 const data = new amenitiesDetailsData
 class amenitiesController {
     async create(obj) {

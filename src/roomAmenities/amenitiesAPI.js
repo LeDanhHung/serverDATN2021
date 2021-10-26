@@ -1,5 +1,5 @@
 import express from 'express'
-import amenitiesController from './amenitiesController'
+import amenitiesController from './amenitiesController.js'
 
 const app = express()
 const roomAmenities = new amenitiesController

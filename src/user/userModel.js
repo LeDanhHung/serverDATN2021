@@ -34,4 +34,4 @@ const userModel = Mongoose.Schema({
     },
 
 })
-export default Mongoose.model('roomDetail', roomDetailModel)
+export default Mongoose.model('user', userModel)

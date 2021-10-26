@@ -2,15 +2,11 @@ import express from 'express'
 import dotenv from 'dotenv';
 
 import orderRoomBookedApi from './src/orderRoomBooked/orderRoomBookedApi.js';
-import roomDetailModel from "./src/roomDetail/roomDetailModel";
-import roomDetailController from "./src/roomDetail/roomDetailController";
-import roomDetailAPI from "./src/roomDetail/roomDetailAPI";
-import roomDetailData from "./src/roomDetail/roomDetailData";
-
+import roomDetailAPI from "./src/roomDetail/roomDetailAPI.js";
 // configs
 import connectDatabase from "./src/configs/dbConfigs.js";
-import userAPI from "./src/user/userAPI";
-import amenitiesAPI from "./src/roomAmenities/amenitiesAPI";
+import userAPI from "./src/user/userAPI.js";
+import amenitiesAPI from "./src/roomAmenities/amenitiesAPI.js";
 dotenv.config()
 connectDatabase();
 const app = express();

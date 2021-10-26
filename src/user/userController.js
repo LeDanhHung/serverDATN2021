@@ -1,4 +1,4 @@
-import userDetailsData from "./userDetailsData";
+import userDetailsData from "./userDetailsData.js";
 const data = new userDetailsData
 class userController {
     async create(obj) {
