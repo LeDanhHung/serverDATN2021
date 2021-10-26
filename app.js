@@ -23,12 +23,12 @@ app.get("/home", async(req, res) => {
 })
 
 //Route
-app.use('/orderRoomBooked', orderRoomBookedApi)
+app.use('/orderRoomBooked.', orderRoomBookedApi)
 app.use('/roomDetailAPI',roomDetailAPI)
 app.use('/userAPI',userAPI)
 app.use('/roomAmenitiesAPI',amenitiesAPI)
     //Server
-app.listen(process.env.port, async() => {
+app.listen(process.env.port || 3000, async() => {
     console.log(`Server chạy bằng con port ${process.env.port}`);
 })
 export default app;

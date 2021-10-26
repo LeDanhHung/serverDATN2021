@@ -9,7 +9,7 @@ app.use(express())
 
 
 app.get('/', async(req, res) => {
-    res.json("user")
+    res.json("roomAmenities")
 })
 app.post('/create', async(req, res) => {
     try {

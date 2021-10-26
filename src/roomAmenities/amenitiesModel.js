@@ -21,6 +21,15 @@ const amenitiesModel = Mongoose.Schema({
         type: Number,
         default:0,
     },
+    created_at    : {
+        type: Date,
+        required: true,
+        default: Date.now()
+    },
+    updatedAt:{
+        type:Date,
+        default:Date.now()
+    },
 
 })
 export default Mongoose.model('AmenitiesDetailsData', amenitiesModel)
