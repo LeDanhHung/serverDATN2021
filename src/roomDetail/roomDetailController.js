@@ -1,4 +1,4 @@
-import roomDetailData from "./roomDetailData";
+import roomDetailData from "./roomDetailData.js";
 const data = new roomDetailData
 class roomDetailController {
     async create(obj) {

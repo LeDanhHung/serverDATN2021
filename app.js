@@ -2,15 +2,11 @@ import express from 'express'
 import dotenv from 'dotenv';
 
 import orderRoomBookedApi from './src/orderRoomBooked/orderRoomBookedApi.js';
-import roomDetailModel from "./src/roomDetail/roomDetailModel";
-import roomDetailController from "./src/roomDetail/roomDetailController";
-import roomDetailAPI from "./src/roomDetail/roomDetailAPI";
-import roomDetailData from "./src/roomDetail/roomDetailData";
-
+import roomDetailAPI from "./src/roomDetail/roomDetailAPI.js";
 // configs
 import connectDatabase from "./src/configs/dbConfigs.js";
-import userAPI from "./src/user/userAPI";
-import amenitiesAPI from "./src/roomAmenities/amenitiesAPI";
+import userAPI from "./src/user/userAPI.js";
+import amenitiesAPI from "./src/roomAmenities/amenitiesAPI.js";
 dotenv.config()
 connectDatabase();
 const app = express();
@@ -27,12 +23,21 @@ app.get("/home", async(req, res) => {
 })
 
 //Route
+<<<<<<< HEAD
 app.use('/orderRoomBooked', orderRoomBookedApi)
 app.use('/roomDetailAPI', roomDetailAPI)
 app.use('/userAPI', userAPI)
 app.use('/roomAmenitiesAPI', amenitiesAPI)
     //Server
 app.listen(process.env.PORT, async() => {
+=======
+app.use('/orderRoomBooked.', orderRoomBookedApi)
+app.use('/roomDetailAPI',roomDetailAPI)
+app.use('/userAPI',userAPI)
+app.use('/roomAmenitiesAPI',amenitiesAPI)
+    //Server
+app.listen(process.env.port || 3000, async() => {
+>>>>>>> 79d57a5da1e102f53db9716cf0ee39b3940380e8
     console.log(`Server chạy bằng con port ${process.env.port}`);
 })
 export default app;

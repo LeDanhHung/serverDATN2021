@@ -17,5 +17,6 @@ class roomDetailData {
         const doc = await roomDetailModel.deleteOne(id)
         return doc
     }
+
 }
 export default roomDetailData

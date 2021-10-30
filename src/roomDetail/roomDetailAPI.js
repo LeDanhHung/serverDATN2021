@@ -1,5 +1,5 @@
 import express from 'express'
-import roomDetailController from './roomDetailController'
+import roomDetailController from './roomDetailController.js'
 
 const app = express()
 const roomDetail = new roomDetailController

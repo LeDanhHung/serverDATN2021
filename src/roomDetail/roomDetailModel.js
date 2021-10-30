@@ -16,6 +16,19 @@ const roomDetailModel = Mongoose.Schema({
         type: Array,
         default: ['1', '2', '3','4']
     },
+    roomPrice: {
+        type: Number,
+        default: 0,
+    },
+    created_at    : {
+        type: Date,
+        required: true,
+        default: Date.now()
+    },
+    updatedAt:{
+        type:Date,
+        default:Date.now()
+    },
 
 })
 export default Mongoose.model('roomDetail', roomDetailModel)

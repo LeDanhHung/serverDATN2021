@@ -32,6 +32,14 @@ const userModel = Mongoose.Schema({
     avatarURL: {
         type: String,
     },
-
+    created_at    : {
+        type: Date,
+        required: true,
+        default: Date.now()
+    },
+    updatedAt:{
+        type:Date,
+        default:Date.now()
+    },
 })
-export default Mongoose.model('roomDetail', roomDetailModel)
+export default Mongoose.model('user', userModel)

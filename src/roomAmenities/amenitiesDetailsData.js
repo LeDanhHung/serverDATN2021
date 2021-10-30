@@ -1,4 +1,4 @@
-import amenitiesModel from "./amenitiesModel";
+import amenitiesModel from "./amenitiesModel.js";
 
 class amenitiesDetailsData {
     async create(obj) {

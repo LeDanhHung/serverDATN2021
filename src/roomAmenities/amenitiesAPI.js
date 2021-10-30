@@ -1,5 +1,5 @@
 import express from 'express'
-import amenitiesController from './amenitiesController'
+import amenitiesController from './amenitiesController.js'
 
 const app = express()
 const roomAmenities = new amenitiesController
@@ -9,7 +9,7 @@ app.use(express())
 
 
 app.get('/', async(req, res) => {
-    res.json("user")
+    res.json("roomAmenities")
 })
 app.post('/create', async(req, res) => {
     try {
