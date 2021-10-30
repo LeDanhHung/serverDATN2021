@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const connectDatabase = () => {
-   const mongoDbUrl = `${process.env.DB}`;
+    const mongoDbUrl = "mongodb+srv://admin:admin@cluster0.uwpab.mongodb.net/DATN?retryWrites=true&w=majority";
 
     console.log(`Connecting to ${mongoDbUrl}`);
     mongoose.Promise = global.Promise;
