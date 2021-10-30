@@ -7,7 +7,7 @@ import roomDetailAPI from "./src/roomDetail/roomDetailAPI.js";
 import connectDatabase from "./src/configs/dbConfigs.js";
 import userAPI from "./src/user/userAPI.js";
 import amenitiesAPI from "./src/roomAmenities/amenitiesAPI.js";
-dotenv.config()
+//dotenv.config()
 connectDatabase();
 const app = express();
 app.use(express())
