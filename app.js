@@ -1,5 +1,5 @@
 import express from 'express'
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
 import orderRoomBookedApi from './src/orderRoomBooked/orderRoomBookedApi.js';
 import roomDetailAPI from "./src/roomDetail/roomDetailAPI.js";
