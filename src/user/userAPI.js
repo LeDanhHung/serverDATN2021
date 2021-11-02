@@ -9,26 +9,28 @@ app.use(express())
 
 
 app.get('/', async(req, res) => {
-    res.json("user")
+    res.json("User")
 })
 app.post('/create', async(req, res) => {
     try {
         const data = req.body
+
         const doc = await user.create(data)
-        res.json(doc)
+
+        res.json(req.body)
     } catch (err) {
         res.json(err)
     }
 })
 
-app.post('/delete/:id', async(req, res) => {
+app.delete('/delete/:id', async(req, res) => {
     const id = req.params.id
     await user.delete({ id })
     res.json(`Delete ${id}`)
 })
 
 
-app.post('/update/:id', async(req, res) => {
+app.put('/update/:id', async(req, res) => {
     const id = req.params.id
     const data = req.body
     const doc1 = await user.updateOne({ _id: id }, data)

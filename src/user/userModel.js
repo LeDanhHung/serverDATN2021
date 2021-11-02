@@ -1,13 +1,12 @@
 import Mongoose from "mongoose";
 
 const userModel = Mongoose.Schema({
-    fullname: {
+    fullName: {
         type: String,
-        required: [true,'fullname  is required']
+
     },
     phone: {
         type: String,
-        required: [true,'phoneNumber  is required']
     },
     email: {
         type: String,
@@ -21,7 +20,6 @@ const userModel = Mongoose.Schema({
     },
     dateOfBirth: {
         type: Date,
-        required:[true,'date of birth is required']
     },
     address: {
         type: String,
@@ -34,12 +32,11 @@ const userModel = Mongoose.Schema({
     },
     created_at    : {
         type: Date,
-        required: true,
         default: Date.now()
     },
     updatedAt:{
         type:Date,
-        default:Date.now()
-    },
+default: Date.now()
+     },
 })
 export default Mongoose.model('user', userModel)

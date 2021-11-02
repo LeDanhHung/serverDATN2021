@@ -2,7 +2,7 @@ import amenitiesModel from "./amenitiesModel.js";
 
 class amenitiesDetailsData {
     async create(obj) {
-        const doc = await amenitiesDetailsData.create(obj)
+        const doc = await amenitiesModel.create(obj)
         return doc
     }
     async findOne(id) {

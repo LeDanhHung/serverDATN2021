@@ -2,7 +2,7 @@ import userModel from "./userModel.js";
 
 class userDetailsData {
     async create(obj) {
-        const doc = await userDetailsData.create(obj)
+        const doc = await userModel.create(obj)
         return doc
     }
     async findOne(id) {

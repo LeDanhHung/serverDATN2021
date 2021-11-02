@@ -8,22 +8,26 @@ const amenitiesModel = Mongoose.Schema({
     airConditioner: {
         type: Number,
         default:0,
-    },    wifi: {
+    },
+    wifi: {
         type: Number,
         default:0,
-    },    smartTV: {
+    },
+    smartTV: {
         type: Number,
         default:0,
-    },    bed: {
+    },
+    bed: {
         type: Number,
         default:0,
-    },    sofa: {
+    },
+    sofa: {
         type: Number,
         default:0,
     },
     created_at    : {
         type: Date,
-        required: true,
+
         default: Date.now()
     },
     updatedAt:{

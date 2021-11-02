@@ -14,21 +14,23 @@ app.get('/', async(req, res) => {
 app.post('/create', async(req, res) => {
     try {
         const data = req.body
+
         const doc = await roomDetail.create(data)
-        res.json(doc)
+
+        res.json(data)
     } catch (err) {
         res.json(err)
     }
 })
 
-app.post('/delete/:id', async(req, res) => {
+app.delete('/delete/:id', async(req, res) => {
     const id = req.params.id
     await roomDetail.delete({ id })
     res.json(`Delete ${id}`)
 })
 
 
-app.post('/update/:id', async(req, res) => {
+app.put('/update/:id', async(req, res) => {
     const id = req.params.id
     const data = req.body
     const doc1 = await roomDetail.updateOne({ _id: id }, data)
