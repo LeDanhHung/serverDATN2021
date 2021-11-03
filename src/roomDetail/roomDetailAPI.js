@@ -11,13 +11,21 @@ app.use(express())
 app.get('/', async(req, res) => {
     res.json("roomDetail")
 })
+app.get('/all', async(req, res) => {
+    let pageNo = req.query.page
+    if (pageNo == undefined) {
+        pageNo = 1
+    }
+    const docs = await roomDetail.findAll(pageNo)
+    res.json(docs)
+})
 app.post('/create', async(req, res) => {
     try {
         const data = req.body
 
         const doc = await roomDetail.create(data)
 
-        res.json(data)
+        res.json(doc)
     } catch (err) {
         res.json(err)
     }

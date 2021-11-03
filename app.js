@@ -1,6 +1,10 @@
 import express from 'express'
 // import dotenv from 'dotenv';
-
+import exphbs from 'express-handlebars';
+import path from 'path';
+import { createRequire } from 'module';
+const require = createRequire(
+    import.meta.url);
 import orderRoomBookedApi from './src/orderRoomBooked/orderRoomBookedApi.js';
 import roomDetailAPI from "./src/roomDetail/roomDetailAPI.js";
 // configs
@@ -10,25 +14,42 @@ import amenitiesAPI from "./src/roomAmenities/amenitiesAPI.js";
 //dotenv.config()
 connectDatabase();
 const app = express();
+const __dirname = path.resolve();
 app.use(express())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static(__dirname + '/public'));
+app.set('views', path.join(__dirname, 'views'));
+//app.engine('html', require('ejs').renderFile);
+//app.set('view engine', 'html');
+app.engine('.hbs', exphbs({ extname: '.hbs' }));
+app.set('view engine', '.hbs');
+//app.engine("hbs", exphbs({ defaultLayout: false }));
 
 
 
 app.get("/home", async(req, res) => {
-    res.json("Trang chủ dự án tốt nghiệp ")
-
+    res.render('index')
 })
-
-//Route
+app.get("/login", async(req, res) => {
+    res.render('login')
+})
+app.get("/register", async(req, res) => {
+    res.render('register')
+})
+app.get("/profile", async(req, res) => {
+    res.render('profile')
+})
+app.get("/table", async(req, res) => {
+        res.render('table')
+    })
+    //Route
 app.use('/orderRoomBooked', orderRoomBookedApi)
-app.use('/roomDetailAPI', roomDetailAPI)
-app.use('/userAPI', userAPI)
-app.use('/roomAmenitiesAPI', amenitiesAPI)
+app.use('/roomDetail', roomDetailAPI)
+app.use('/user', userAPI)
+app.use('/roomAmenities', amenitiesAPI)
     //Server
-app.listen(process.env.PORT, async() => {
+app.listen(process.env.PORT || 7777, async() => {
     console.log(`Server chạy bằng con port ${process.env.port}`);
 })
 export default app;

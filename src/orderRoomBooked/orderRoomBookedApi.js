@@ -46,9 +46,14 @@ app.post('/update/:id', async(req, res) => {
 
 app.post('/delete/:id', async(req, res) => {
     const id = req.params.id
-    await orderRoomBooked.delete({ _id: id })
-    await orderRoomBooking.delete({ _id: id })
-    res.json(`Delete thanh cong  ${id}`)
+    const del1 = await orderRoomBooked.delete({ _id: id })
+
+    if (del1) {
+        await orderRoomBooking.delete({ _id: id })
+        res.json(`Delete thanh cong  ${id}`)
+    } else {
+        res.json("Delete thất bại ")
+    }
 
 })
 export default app
