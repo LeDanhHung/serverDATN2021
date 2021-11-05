@@ -13,8 +13,16 @@ class roomDetailData {
         const doc = await roomDetailModel.updateOne({ _id: id }, { $set: obj })
         return doc
     }
+    async findRoomByStatus(roomStatus){
+        const doc = await roomDetailModel.find(roomStatus)
+        return doc
+    }
     async findAll() {
         const doc = await roomDetailModel.find()
+        return doc
+    }
+    async findByIdKind(idKindOfRoom){
+        const doc = await roomDetailModel.find(idKindOfRoom)
         return doc
     }
     async delete(id) {
