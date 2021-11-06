@@ -11,6 +11,7 @@ import roomDetailAPI from "./src/roomDetail/roomDetailAPI.js";
 import connectDatabase from "./src/configs/dbConfigs.js";
 import userAPI from "./src/user/userAPI.js";
 import amenitiesAPI from "./src/roomAmenities/amenitiesAPI.js";
+import authRouter from "./src/auth/auth.Router.js";
 //dotenv.config()
 connectDatabase();
 const app = express();
@@ -48,6 +49,7 @@ app.use('/orderRoomBooked', orderRoomBookedApi)
 app.use('/roomDetail', roomDetailAPI)
 app.use('/user', userAPI)
 app.use('/roomAmenities', amenitiesAPI)
+app.use('/api/v1/auth',authRouter);
     //Server
 app.listen(process.env.PORT || 7777, async() => {
     console.log(`Server chạy bằng con port ${process.env.port}`);
