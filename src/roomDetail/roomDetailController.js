@@ -7,7 +7,7 @@ class roomDetailController {
     }
     async findAll(page) {
         const read = await data.findAll()
-        const itemPerPage = 10;
+        const itemPerPage = 50;
         const slice = read.slice(itemPerPage * page - itemPerPage, itemPerPage * page)
         return slice;
     }
