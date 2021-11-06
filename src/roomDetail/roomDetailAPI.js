@@ -21,7 +21,7 @@ app.get('/all', async(req, res) => {
 })
 app.get('/getAllByStatus/:roomStatus', async(req, res) => {
     const roomStatus = req.params.roomStatus
-    const docs = await roomDetail.findRoomByStatus({roomStatus: roomStatus})
+    const docs = await roomDetail.findRoomByStatus({roomStatus})
     res.json(docs)
 })
 
