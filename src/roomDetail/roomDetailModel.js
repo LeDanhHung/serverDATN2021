@@ -13,8 +13,12 @@ const roomDetailModel = Mongoose.Schema({
         type: Number,
     },
     roomStatus: {
-        type: Array,
-        default: ['1', '2', '3','4']
+        type:Number,
+        default:1,
+    },
+    idKindOfRoom:{
+      type:Number,
+        default:1,
     },
     roomPrice: {
         type: Number,

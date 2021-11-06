@@ -7,12 +7,20 @@ class roomDetailController {
     }
     async findAll(page) {
         const read = await data.findAll()
-        const itemPerPage = 5;
+        const itemPerPage = 50;
         const slice = read.slice(itemPerPage * page - itemPerPage, itemPerPage * page)
         return slice;
     }
     async findOne(id) {
         const read = await data.findOne(id)
+        return read
+    }
+    async findRoomByStatus(roomStatus) {
+        const read = await data.findRoomByStatus(roomStatus)
+        return read
+    }
+    async findByIdKind(idKindOfRoom) {
+        const read = await data.findByIdKind(idKindOfRoom)
         return read
     }
     async updateOne(id, obj) {
