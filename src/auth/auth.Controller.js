@@ -1,8 +1,8 @@
-const User = require('./user.models')
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
+import User  from './user.models.js'
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcryptjs'
 
-exports.register = async (req, res, next) => {
+export const register = async (req, res, next) => {
     try {
         const user = await User.create(req.body);
         res.status(200).json({
@@ -14,7 +14,7 @@ exports.register = async (req, res, next) => {
 
     }
 }
-exports.login = async (req, res, next) => {
+export const login = async (req, res, next) => {
     try {
         const email = req.body.email;
         const user = await User.findOne({ email: req.body.email });
@@ -44,7 +44,7 @@ exports.login = async (req, res, next) => {
         console.log(error);
     }
 }
-exports.getListUser = async (req, res, next) => {
+export const getListUser = async (req, res, next) => {
     try {
         const user = await User.find({});
         res.status(200).json({
@@ -56,7 +56,7 @@ exports.getListUser = async (req, res, next) => {
         console.log(error);
     }
 }
-exports.getListUserId = async (req, res, next) => {
+export const getListUserId = async (req, res, next) => {
     const id = req.params.id;
     try {
         const user = await User.findOne({ _id: id  });
@@ -68,7 +68,7 @@ exports.getListUserId = async (req, res, next) => {
         console.log(error);
     }
 }
-exports.UpdateOneUser = async (req, res, next) => {
+export const UpdateOneUser = async (req, res, next) => {
     try {
         if (!req.body) {
             return res.status(400).send({
@@ -90,7 +90,7 @@ exports.UpdateOneUser = async (req, res, next) => {
         res.status(500).send(error);
     }
 }
-exports.DelateOneUser = async (req, res, next) => {
+export const DelateOneUser = async (req, res, next) => {
     try {
         const user = await User.findByIdAndDelete(req.params.id, req.body);
         if (!user) {

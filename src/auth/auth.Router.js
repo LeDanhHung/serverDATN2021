@@ -1,6 +1,12 @@
-const express = require('express');
-const authController = require('./auth.Controller');
+// const express = require('express');
+// const authController = require('./auth.Controller');
+// const Router = express.Router();
+
+import express from 'express'
+// const express =  express();
+import * as  authController from './auth.Controller.js'
 const Router = express.Router();
+
 
 
 Router.post('/register',authController.register);
@@ -11,4 +17,4 @@ Router.get('/getUser',authController.getListUser);
 Router.put('/updateUser/:id',authController.UpdateOneUser);
 Router.delete('/deleteUser/:id',authController.DelateOneUser);
 
-module.exports = Router;
+export {Router}  ;
