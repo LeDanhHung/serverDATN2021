@@ -4,6 +4,11 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 
 const userSchema = new mongoose.Schema({
+    role:{
+       type: String,
+       trim: true,
+       require:[true,"role must be required"]
+    },
     fullName: {
         type: String,
         unique: true,
@@ -39,6 +44,9 @@ const userSchema = new mongoose.Schema({
     DateOfBirth: {
         type: Date,
         require: [true, 'dateOfBirth must be require']
+    },
+    avatar:{
+       type: String,
     },
     status: {
         type: String,

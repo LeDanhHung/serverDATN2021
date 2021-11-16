@@ -18,13 +18,14 @@ export const login = async (req, res, next) => {
     try {
         const email = req.body.email;
         const user = await User.findOne({ email: req.body.email });
+        console.log(user);
         if (!user) {
             res.status(400).json({
                 status: 'not found',
                 message: 'email is not correct',
             })
         } else {
-            let check = await bcrypt.compareSync(req.body.passWord, user.passWord);
+            let check = await bcrypt.compareSync(req.body.passWord, user.password);
             if (user.email === email && check == true) {
                 const token = jwt.sign({ userId: user._id }, 'project', { algorithm: 'HS256' });
                 res.status(200).json({
@@ -47,7 +48,7 @@ export const login = async (req, res, next) => {
 export const getListUser = async (req, res, next) => {
     try {
         const user = await User.find({});
-        res.status(200).json({
+        return res.status(200).json({
             status: 'get list user success',
             result: user.length,
             data: { user }
@@ -100,4 +101,28 @@ export const DelateOneUser = async (req, res, next) => {
     } catch (error) {
         res.status(500).send(error);
     }
+}
+export const uploadAvatar = async (req,res,next) => {
+    try {
+        const userID = req.user;
+        const userDB = await User.findOne({whare:{_id:userID}});
+        if(!userDB) {
+            return res.status(404).send({ message:'not found' });
+        }
+        await UserDB.update({
+            avatar: req.file.filename
+        })
+        res.status(200).send({ 
+            message:'upload avatar successfully',
+            data: userDB
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const test = async (req, res, next) => {
+    res.status(200).send({
+        message:'test successful successfully',
+    })
 }
