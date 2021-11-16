@@ -266,6 +266,27 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-
+    {{#each roomDetail }}
+    <h3>Họ và tên: {{this.roomName}}</h3>
+    <p>Password: {{this.password}}</p>
+    <p>Email: {{this.email}}</p>
+    <p>Ngày sinh: {{this.date}}</p>
+    <p>Giới Tính: {{this.gioitinh}}</p>
+    <p>Sở Thích: {{this.sothich}}</p>
+    <p>Giới Thiệu: {{this.gioithieu}}</p>
+    <a href="/edit/{{this._id}}">Sửa</a>
+    <img src="{{this.avatars}}" alt="" srcset="">
+    <div class="col-lg-13"></div>
+    <form class="row" method="POST" action="/deleteUser">
+        {{!-- <input name="_id" value="{{this._id}}" /> --}}
+        <button type="submit" name="_id" value={{this._id}}>Xóa</button>
+    
+    </form>
+    </div>
+    
+    
+    
+    <li>____________________________________________________________________________</li>
+    {{/each}}
 </body>
 
