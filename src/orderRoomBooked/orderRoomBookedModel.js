@@ -10,7 +10,7 @@ const orderRoomBookedModel = Mongoose.Schema({
         required: true
     },
     timeBooking: {
-        type: String,
+        type: Date,
         required: true
     },
     createdAt: {
