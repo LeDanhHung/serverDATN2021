@@ -40,6 +40,7 @@ app.put('/update/:id', async(req, res) => {
         res.json("Failed")
     }
 
+
 })
 
 app.get('/getAllByIdKind/:idKindOfRoom', async(req, res) => {
