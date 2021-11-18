@@ -8,6 +8,10 @@ class OrderRoomBookingDetailController {
         await orderRoomBookingDetailData.create(data);
 
     }
+    async findOne(idBookingDetails) {
+        const doc = await orderRoomBookingDetailData.findOne(idBookingDetails)
+        return doc
+    }
     async delete(id) {
         await orderRoomBookingDetailData.delete({ idBookingDetails: id });
     }
