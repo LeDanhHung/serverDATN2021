@@ -11,6 +11,7 @@ const orderRoomBookedModel = Mongoose.Schema({
     },
     timeBooking: {
         type: String,
+        required: true
     },
     createdAt: {
         type: Date,
@@ -20,8 +21,8 @@ const orderRoomBookedModel = Mongoose.Schema({
         type: Date,
     },
     bookingStatus: {
-        type: Array,
-        default: ['1', '2', '3']
+        type: Number,
+        default: 0
     },
     totalRoomRate: {
         type: Number,

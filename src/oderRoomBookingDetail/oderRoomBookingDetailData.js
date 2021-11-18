@@ -4,8 +4,8 @@ class orderRoomBookingDetail {
         const doc = await oderRoomBookingDetailModel.create(obj)
         return doc
     }
-    async findOne(id) {
-        const doc = await oderRoomBookingDetailModel.findById(id)
+    async findOne(idBookingDetails) {
+        const doc = await oderRoomBookingDetailModel.findOne(idBookingDetails)
         return doc
     }
     async delete(id) {
