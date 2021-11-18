@@ -42,6 +42,12 @@ app.put('/update/:id', async(req, res) => {
 
 })
 
+app.get('/getAllByIdKind/:idKindOfRoom', async(req, res) => {
+    const idKindOfRoom = req.params.idKindOfRoom
+    const docs = await roomAmenities.findByIdKind({idKindOfRoom})
+    res.json(docs)
+})
+
 app.get('/:id', async(req, res) => {
     const id = req.params.id
     const docs = await roomAmenities.findOne({ _id: id })

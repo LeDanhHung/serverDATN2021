@@ -1,4 +1,5 @@
 import amenitiesModel from "./amenitiesModel.js";
+import roomDetailModel from "../roomDetail/roomDetailModel";
 
 class amenitiesDetailsData {
     async create(obj) {
@@ -15,6 +16,10 @@ class amenitiesDetailsData {
     }
     async delete(id) {
         const doc = await amenitiesModel.deleteOne(id)
+        return doc
+    }
+    async findByIdKind(idKindOfRoom){
+        const doc = await roomDetailModel.find(idKindOfRoom)
         return doc
     }
 }

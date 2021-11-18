@@ -17,5 +17,9 @@ class amenitiesController {
         const doc = await data.delete(id)
         return doc
     }
+    async findByIdKind(idKindOfRoom) {
+        const read = await data.findByIdKind(idKindOfRoom)
+        return read
+    }
 }
 export default amenitiesController
