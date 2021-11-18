@@ -1,5 +1,5 @@
 import amenitiesModel from "./amenitiesModel.js";
-import roomDetailModel from "../roomDetail/roomDetailModel";
+import roomDetailModel from "../roomDetail/roomDetailModel.js";
 
 class amenitiesDetailsData {
     async create(obj) {
