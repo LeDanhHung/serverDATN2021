@@ -147,12 +147,11 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
+                                      
+                                             {{#each roomDetail}} 
+                                            <td> {{this.roomName}}</td>
+                                           
+                                            {{/each}}
                                         </tr>
                                         <tr>
                                             <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar2.jpeg">Angelica Ramos</td>
