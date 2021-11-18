@@ -18,8 +18,8 @@ class amenitiesDetailsData {
         const doc = await amenitiesModel.deleteOne(id)
         return doc
     }
-    async findByIdKind(idKindOfRoom){
-        const doc = await roomDetailModel.find(idKindOfRoom)
+    async findByIdKind(idKindOfRoom) {
+        const doc = await roomDetailModel.findOne(idKindOfRoom)
         return doc
     }
 }
