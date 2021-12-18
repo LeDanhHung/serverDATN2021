@@ -1,0 +1,239 @@
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0"><a
+                    class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="home">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-hotel"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Hanoi Prime</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="/home"><i class="fas fa-tachometer-alt"></i><span>Thống Kê</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/profile"><i class="fas fa-user"></i><span>Quản Lý Nhân Viên</span></a></li>
+                    <li class="nav-item"><a class="nav-link " href="/table"><i class="	fas fa-bed"></i><span>Quản Lý Phòng</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/customer"><i class="fas fa-bell"></i><span>Quản Lý Người Dùng</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i><span>Đăng Xuất</span></a></li>
+                </ul>
+
+            </div>
+        </nav>
+
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3"
+                            id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <div class="d-sm-inline-block me-auto md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <h4 class="text-dark mb-0">Thống kê</h4>
+                        </div>
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow">
+                                    <a class="dropdown-toggle nav-link" href="">
+                                        <span class="d-none d-lg-inline me-2 text-gray-600 small">
+                                            
+                                        </span>
+                                        
+                                        <img class="border rounded-circle img-profile" src="{{this}}">
+                                        
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Thống kê chi tiết</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <p class="text-white" id="tongnhanvien"> {{totalUserEmployee}} </p>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <p class="text-white" id="tongnguoidung"> {{totalUserCustomer}}</p>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <canvas id="myChart" width="500" height="500"></canvas>
+                                </div>
+                                <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                                    aria-describedby="dataTable_info">
+                                    <table class="table table-hover my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Tên Người Đặt</th>
+                                                <th>Ngày Đặt</th>
+                                                <th>Số Điện thoại</th>
+                                                <th>Số Phòng</th>
+                                                <th>Giá Tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <div class="row">
+                                                <div class="col-md-auto text-nowrap">
+                                                    <div id="dataTable_length" aria-controls="dataTable">
+                                                        <label class="form-label">
+                                                            <select class="d-inline-block form-select form-select-sm">
+                                                                <option value="" selected="">Trạng Thái Đơn</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">Đã Thanh Toán</option>
+                                                            </select>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-auto text-nowrap">
+                                                    <div id="dataTable_length" aria-controls="dataTable">
+                                                        <label class="form-label">
+                                                            <select class="d-inline-block form-select form-select-sm">
+                                                                <option value="" selected="">Chuyên nghành</option>
+                                                                <option value="25">25</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                            </select>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-auto text-nowrap">
+                                                    <div id="dataTable_length" aria-controls="dataTable">
+                                                        <label class="form-label">
+                                                            <select class="d-inline-block form-select form-select-sm">
+                                                                <option value="" selected="">Khóa</option>
+                                                                <option value="25">25</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                            </select>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-auto text-nowrap">
+                                                    <div id="dataTable_length" aria-controls="dataTable">
+                                                        <label class="form-label">
+                                                            <select class="d-inline-block form-select form-select-sm">
+                                                                <option value="" selected="">Ngày</option>
+                                                                <option value="25">25</option>
+                                                                <option value="50">50</option>
+                                                                <option value="100">100</option>
+                                                            </select>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{#each orderRoomBookedDB }}
+                                            <tr>
+                                                <td>{{@index}}</td>
+
+                                                <td>{{this.fullName}}</td>
+
+                                                <td>{{this.phone}}</td>
+
+                                                <td>{{dateFormat this.timeBookingStart "dddd, MMMM Do YYYY"}}</td>
+                                                <td>{{this.totalRoomRate}}</td>
+
+                                                <td>
+                                                    <div class="col-lg-13">
+                                                        <form class="row" method="POST" action="/profile/deleteUser">
+
+                                                            <button class="btn btn-danger" type="submit" name="_id"
+                                                                value={{this._id}}>Xóa</button>
+
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {{/each }}
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                                <div class="col-lg-13">
+                                    <p id="tongdonhoanthanh">Tổng số đơn đã thanh toán: {{totalBooked3}}</p>
+                                </div>
+                                <div class="col-lg-13">
+                                    <p id="tongdonchuaxacnhan">Tổng số chưa xác nhận: {{totalBooked0}}</p>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <p id="tongdondaxacnhan">Tổng số đơn đã xác nhận: {{totalBooked1}}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="bg-white sticky-footer">
+                        <div class="container my-auto">
+                            <div class="text-center my-auto copyright"><span>Hanoi Prime Center</span></div>
+                        </div>
+                    </footer>
+                </div>
+
+            </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        </div>
+        <script>
+            const ctx = document.getElementById('myChart');
+            const ctx2 = document.getElementById('myChart2');
+            var element = document.getElementById('tongnhanvien');
+            var element2 = document.getElementById('tongnguoidung');
+            var element3 = document.getElementById('tongdonhoanthanh');
+            var element4 = document.getElementById('tongdonchuaxacnhan');
+            var element5 = document.getElementById('tongdondaxacnhan');
+            var donhoanthanh = element3.innerHTML
+            var donchuaxacnhan = element4.innerHTML
+            var dondaxacnhan = element5.innerHTML
+            console.log(element);
+            console.log(element.innerHTML)
+            var nhanvien = element.innerHTML
+            console.log(nhanvien);
+            var nguoidung = element2.innerHTML
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Nhân Viên', 'Người Dùng'],
+                    datasets: [{
+
+                        label: 'Bảng thống kê truy cập',
+                        data: [nhanvien, nguoidung],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+
+                },
+            });
+
+        </script>
+</body>
